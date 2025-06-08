@@ -16,9 +16,11 @@
   </style>
 </head>
 <body>
-  <script src="https://unpkg.com/three@0.148.0/build/three.min.js"></script>
-  <script src="https://unpkg.com/three@0.148.0/examples/js/loaders/GLTFLoader.js"></script>
-  <script>
+
+  <script type="module">
+    import * as THREE from 'https://unpkg.com/three@0.148.0/build/three.module.js';
+    import { GLTFLoader } from 'https://unpkg.com/three@0.148.0/examples/jsm/loaders/GLTFLoader.js';
+
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -31,7 +33,7 @@
 
     let model;
 
-    const loader = new THREE.GLTFLoader();
+    const loader = new GLTFLoader();
     loader.load('https://raw.githubusercontent.com/Pichai2025/my-3d-viewer/main/asteroid.glb', function (gltf) {
       model = gltf.scene;
       model.scale.set(3, 3, 3);
@@ -55,5 +57,6 @@
       renderer.setSize(window.innerWidth, window.innerHeight);
     });
   </script>
+
 </body>
 </html>
