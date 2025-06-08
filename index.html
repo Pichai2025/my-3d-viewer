@@ -32,20 +32,13 @@
     let model;
 
     const loader = new THREE.GLTFLoader();
-    loader.load('https://pichai2025.github.io/my-3d-viewer/asteroid.glb', function (gltf) {
+    loader.load('https://cdn.jsdelivr.net/gh/Pichai2025/my-3d-viewer@main/asteroid.glb', function (gltf) {
       model = gltf.scene;
       model.scale.set(3, 3, 3);
       scene.add(model);
       animate();
     }, undefined, function (error) {
-      console.error('❌ Failed to load model:', error);
-      const message = document.createElement('div');
-      message.style.color = 'white';
-      message.style.fontSize = '1.5rem';
-      message.style.textAlign = 'center';
-      message.style.marginTop = '2rem';
-      message.innerText = 'ไม่สามารถโหลดโมเดลได้';
-      document.body.appendChild(message);
+      console.error('โหลดโมเดลไม่สำเร็จ:', error);
     });
 
     camera.position.z = 10;
