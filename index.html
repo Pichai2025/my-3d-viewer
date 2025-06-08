@@ -29,9 +29,11 @@
     light.position.set(5, 5, 5);
     scene.add(light);
 
+    let model;
+
     const loader = new THREE.GLTFLoader();
     loader.load('asteroid.glb', function (gltf) {
-      const model = gltf.scene;
+      model = gltf.scene;
       model.scale.set(3, 3, 3);
       scene.add(model);
       animate();
@@ -41,7 +43,7 @@
 
     function animate() {
       requestAnimationFrame(animate);
-      scene.rotation.y += 0.005;
+      if (model) model.rotation.y += 0.005;
       renderer.render(scene, camera);
     }
 
