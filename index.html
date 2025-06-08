@@ -32,7 +32,7 @@
     let model;
 
     const loader = new THREE.GLTFLoader();
-    loader.load('https://cdn.jsdelivr.net/gh/Pichai2025/my-3d-viewer@main/asteroid.glb', function (gltf) {
+    loader.load('https://raw.githubusercontent.com/Pichai2025/my-3d-viewer/main/asteroid.glb', function (gltf) {
       model = gltf.scene;
       model.scale.set(3, 3, 3);
       scene.add(model);
